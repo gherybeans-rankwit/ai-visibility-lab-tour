@@ -336,6 +336,11 @@ a{color:inherit}
 .prog-note{margin-top:16px;font-size:.85rem;color:var(--muted)}
 .topics .prog-row h3{font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.2}
 .topics .desc{font-size:.95rem;color:var(--muted)}
+.pano-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);background:var(--violet-soft);border-radius:999px;padding:5px 10px;margin-bottom:10px}
+.scope{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+.scope li{position:relative;padding-left:18px;line-height:1.5}
+.scope li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--violet)}
+.scope b{display:block;font-family:var(--font-display);font-weight:600;color:var(--ink);font-size:1rem}
 @media (max-width:860px){.topics .desc{grid-column:2}}
 
 /* per chi */
@@ -849,23 +854,37 @@ a{color:inherit}
     <div class="wrap">
       <div class="sec-head split">
         <div style="display:grid;gap:16px"><p class="eyebrow">Programma</p><h2 class="h2">Gli argomenti <em>delle sessioni</em></h2></div>
-        <p class="lead">In ogni tappa il lavoro in sala segue questi tre argomenti, nell'ordine. Durata e orari dipendono dal formato e sono indicati nella pagina di ogni tappa.</p>
+        <p class="lead">Ogni tappa si apre con uno sguardo d'insieme su cosa sta cambiando nel turismo e nella ricerca online. Poi si lavora sul report, in tre passaggi. Durata e orari dipendono dal formato e sono indicati nella pagina di ogni tappa.</p>
       </div>
       <div class="programme topics">
-        <div class="prog-row">
+        <div class="prog-row pano">
           <span class="prog-t tab">01</span>
-          <h3>Cosa è cambiato, e cosa funziona ancora</h3>
-          <p class="desc">Cosa cambia da quando le risposte le scrive un modello, quali attività di oggi restano utili e quali non servono più. Poi si apre il report sulla pagina più importante per la tua struttura.</p>
-          <p class="out"><small>Al termine hai</small>La pagina del sito da riscrivere per prima, e come farlo.</p>
+          <div><p class="pano-tag">Il quadro generale</p><h3>Dove sta andando il turismo</h3></div>
+          <div class="desc">
+            <p>Prima di aprire i report, una panoramica per capire cosa sta succedendo e chi si sta muovendo.</p>
+            <ul class="scope">
+              <li><b>Viaggiatori</b>come scelgono e prenotano oggi, e quanto pesa già l'AI nelle loro decisioni.</li>
+              <li><b>Ricerca</b>dai risultati di Google alle risposte degli assistenti: AI Overviews, AI Mode, ChatGPT, Perplexity.</li>
+              <li><b>Industria</b>cosa stanno facendo OTA, catene e piattaforme, dalla prenotazione dentro gli assistenti agli agenti AI.</li>
+              <li><b>Come evolvere</b>competenze, ruoli e priorità per hotel e destinazioni nei prossimi anni.</li>
+            </ul>
+          </div>
+          <p class="out"><small>Al termine hai</small>Un quadro chiaro di cosa sta cambiando e di dove conviene concentrarsi.</p>
         </div>
         <div class="prog-row">
           <span class="prog-t tab">02</span>
+          <h3>Cosa funziona ancora, e cosa no</h3>
+          <p class="desc">Con il report in mano: quali attività di oggi restano utili e quali non servono più. Si parte dalla pagina più importante per la tua struttura.</p>
+          <p class="out"><small>Al termine hai</small>La pagina del sito da riscrivere per prima, e come farlo.</p>
+        </div>
+        <div class="prog-row">
+          <span class="prog-t tab">03</span>
           <h3>Mettere in ordine quello che il sito deve dire</h3>
           <p class="desc">La parte tecnica, senza scrivere codice: dati strutturati, llms.txt e quali bot AI possono leggere il sito.</p>
           <p class="out"><small>Al termine hai</small>I template compilati per il tuo sito e le istruzioni per chi lo gestisce.</p>
         </div>
         <div class="prog-row">
-          <span class="prog-t tab">03</span>
+          <span class="prog-t tab">04</span>
           <h3>Le domande su cui vuoi essere misurato</h3>
           <p class="desc">Le domande che gli ospiti fanno agli assistenti AI prima di prenotare: quali scegliere, cosa controllare ogni mese e chi se ne occupa.</p>
           <p class="out"><small>Al termine hai</small>L'elenco delle domande da monitorare e la prima misurazione.</p>
