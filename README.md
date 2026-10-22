@@ -4,7 +4,7 @@ Sito vetrina del roadshow AI Visibility Lab di RankWit. È un'unica pagina stati
 
 ## Cosa contiene
 
-- **Home**: mappa delle tappe, calendario, come si partecipa, report, argomenti delle sessioni, modulo "Avvisami o proponi una città", partner, domande frequenti.
+- **Home**: mappa delle tappe, calendario, come si partecipa, report, argomenti delle sessioni, modulo "Avvisami o proponi una città", partner, domande frequenti, modulo contatti.
 - **Pagine separate**: `#hotel`, `#destinations` e una pagina per ogni tappa (`#casentino`, `#firenze`, ...).
 
 ## Aggiornare le tappe
@@ -18,5 +18,5 @@ Le tappe sono nell'array `TAPPE` in cima allo script di `index.html`.
 
 ## Da collegare
 
-- **Modulo richieste**: la funzione `inviaRichiesta(rec)` oggi salva nel database dell'anteprima su claude.ai. Sul sito va sostituita con una chiamata al vostro backend o CRM. Il resto del modulo (campi, controlli, conferma) non cambia.
+- **Moduli (Avvisami e Contatti)**: entrambi usano la funzione `inviaRichiesta(rec)`, che oggi salva nel database dell'anteprima su claude.ai. Sul sito va sostituita con una chiamata al vostro backend o CRM. Il resto dei moduli (campi, controlli, conferma) non cambia.
 - **Indirizzi `/hotel` e `/destinations`**: la pagina li riconosce già. Serve che l'hosting rimandi tutti i percorsi a `index.html` (il file `_redirects` lo fa su Netlify e Cloudflare Pages). Su GitHub Pages funzionano solo i link con `#`.

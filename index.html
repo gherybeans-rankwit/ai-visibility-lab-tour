@@ -530,6 +530,14 @@ a{color:inherit}
 .fld{display:grid;gap:6px;align-content:start;min-width:0}
 .fld label{font-size:.85rem;font-weight:600;color:#201E1D}
 .fld label .opt{font-weight:400;color:#636160}
+.fld textarea{font:inherit;font-size:1rem;color:#201E1D;background:#FFFFFF;border:1px solid rgba(32,30,29,.24);border-radius:12px;padding:12px 14px;width:100%;min-width:0;min-height:140px;resize:vertical}
+.fld textarea:focus{outline:2px solid #5B21D6;outline-offset:1px;border-color:#5B21D6}
+.ct-intro h2{color:var(--ink)}
+.ct-intro .lead{color:var(--muted)}
+.ct-mail{font-size:.98rem;color:var(--muted)}
+.ct-mail b{color:var(--ink);font-weight:600;user-select:all}
+#contatti .form{border:1px solid var(--line);box-shadow:none}
+.inbox td.msg{max-width:320px;white-space:pre-wrap}
 .fld input,.fld select{font:inherit;font-size:1rem;color:#201E1D;background:#FFFFFF;border:1px solid rgba(32,30,29,.24);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
 .fld input::placeholder{color:#8C8A88}
 .fld input:focus,.fld select:focus{outline:2px solid #5B21D6;outline-offset:1px;border-color:#5B21D6}
@@ -564,12 +572,17 @@ a{color:inherit}
 .inbox-sum{display:flex;flex-wrap:wrap;gap:8px}
 .inbox-sum span{font-size:.82rem;font-weight:600;background:#F3EEFE;color:#40119E;border-radius:999px;padding:5px 12px}
 .inbox-scroll{overflow-x:auto}
-.inbox table{width:100%;min-width:760px;border-collapse:collapse;font-size:.88rem}
+.inbox table{width:100%;min-width:980px;border-collapse:collapse;font-size:.88rem}
 .inbox th,.inbox td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(32,30,29,.12);vertical-align:top}
 .inbox th{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#636160}
 .inbox td.empty{color:#636160;text-align:center;padding:24px}
 .enter-label{grid-column:1 / -1}
 .enter.solo{margin-top:0;padding-top:0;border-top:0}
+.vid{margin:0;position:relative;border-radius:var(--radius-l);overflow:hidden;border:1px solid var(--night-line);background:#0B0518;aspect-ratio:16/9;max-width:100%}
+.vid video{display:block;width:100%;height:100%;object-fit:cover;background:#0B0518}
+.vid-fallback{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-decoration:none;color:#FFFFFF;font-family:var(--font-display);font-weight:600;font-size:1.1rem;text-align:center;padding:24px}
+.vid-play{width:72px;height:72px;border-radius:50%;background:#FFFFFF;color:#1B0B3A;display:grid;place-items:center;font-size:1.6rem;padding-left:5px}
+.vid-fallback:hover .vid-play{background:var(--mint)}
 .city.on .pin{stroke:var(--mint);stroke-width:3}
 .map-tip{position:absolute;z-index:3;transform:translate(-50%,calc(-100% - 14px));background:#FFFFFF;color:#201E1D;border-radius:10px;padding:8px 12px;box-shadow:0 14px 30px -10px rgba(0,0,0,.65);pointer-events:none;white-space:nowrap;display:grid;gap:2px;text-align:center}
 .map-tip b{font-family:var(--font-display);font-weight:600;font-size:.98rem;line-height:1.2}
@@ -622,6 +635,7 @@ a{color:inherit}
       <a href="#hotel">Hotel</a>
       <a href="#destinations">Destinazioni</a>
       <a href="#faq">Domande</a>
+      <a href="#contatti">Contatti</a>
     </nav>
     <a class="btn btn-primary btn-s" href="#avvisami">Avvisami <span class="arr" aria-hidden="true">→</span></a>
   </div>
@@ -685,6 +699,19 @@ a{color:inherit}
         </div>
         <button type="button" class="board-more" id="board-more" aria-controls="board" aria-expanded="false"><span><b>Altre tappe</b><span class="bm-count" id="board-more-n"></span></span><span class="bm-act" id="board-more-act">Mostra tutte ↓</span></button>
       </div>
+    </div>
+  </section>
+
+  <section class="band band-night on-night" id="video">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div style="display:grid;gap:16px"><p class="eyebrow">La prima edizione</p><h2 class="h2">Com'è andata <em>a Firenze</em></h2></div>
+        <p class="lead">Il 23 settembre all'Innovation Center di Fondazione CR Firenze, con il report di ogni partecipante sul tavolo.</p>
+      </div>
+      <figure class="vid" id="vid-box">
+        <video id="vid" controls muted loop playsinline preload="metadata" poster="https://lab.rankwit.ai/assets/evento-rimini-poster.jpg" src="https://lab.rankwit.ai/assets/evento-rimini.mp4" aria-label="Video della prima edizione dell'AI Visibility Lab a Firenze"></video>
+        <a class="vid-fallback" id="vid-fallback" href="https://lab.rankwit.ai/" target="_blank" rel="noopener" hidden><span class="vid-play" aria-hidden="true">▶</span><span>Guarda il video della prima edizione su lab.rankwit.ai ↗</span></a>
+      </figure>
     </div>
   </section>
 
@@ -828,8 +855,8 @@ a{color:inherit}
         <div class="inbox-sum" id="inbox-sum"></div>
         <div class="inbox-scroll">
           <table>
-            <thead><tr><th>Data</th><th>Tipo</th><th>Città</th><th>Struttura</th><th>Nome</th><th>Email</th><th>Telefono</th></tr></thead>
-            <tbody id="inbox-rows"><tr><td class="empty" colspan="7">Nessuna richiesta per ora.</td></tr></tbody>
+            <thead><tr><th>Data</th><th>Tipo</th><th>Città o argomento</th><th>Struttura</th><th>Nome</th><th>Email</th><th>Telefono</th><th>Messaggio</th></tr></thead>
+            <tbody id="inbox-rows"><tr><td class="empty" colspan="8">Nessuna richiesta per ora.</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -860,10 +887,9 @@ a{color:inherit}
       <div class="sec-head">
         <p class="eyebrow">Domande</p>
         <h2 class="h2">Domande frequenti</h2>
-        <p class="lead">Per altre domande scrivi a info@rankwit.ai o su <a class="link" href="https://wa.me/393762826959" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p class="lead">Non trovi la risposta? <a class="link" href="#contatti">Scrivici dal modulo contatti</a> o a info@rankwit.ai.</p>
       </div>
       <div class="faq">
-        <details><summary>Quanto costa partecipare?</summary><p>Dipende dal formato della tappa. A Firenze la giornata costava da 249 a 349 € + IVA; a Rimini la partecipazione era gratuita, su candidatura. Il costo di ogni tappa è indicato nella sua pagina.</p></details>
         <details><summary>Perché i posti sono limitati?</summary><p>Ogni report viene preparato a mano per la singola struttura. Il numero di posti corrisponde ai report che riusciamo a preparare prima della data.</p></details>
         <details><summary>Devo darvi accesso al sito o ai miei dati?</summary><p>No. Il report si basa sulle risposte al questionario e su ciò che gli assistenti AI dicono pubblicamente della tua struttura.</p></details>
         <details><summary>Servono competenze tecniche?</summary><p>No. I template allegati al report sono già compilati: puoi inserirli tu o inviarli a chi gestisce il sito.</p></details>
@@ -873,6 +899,18 @@ a{color:inherit}
         <details><summary>Posso partecipare con un collega?</summary><p>Il posto è uno per struttura. Se vi serve un secondo posto scrivici a info@rankwit.ai: se restano posti liberi vicino alla data, lo confermiamo.</p></details>
         <details><summary>Cosa succede se non posso più partecipare?</summary><p>Avvisaci appena possibile. Il posto viene assegnato a un'altra struttura e il report già preparato resta tuo.</p></details>
       </div>
+    </div>
+  </section>
+
+  <section class="band band-surface" id="contatti">
+    <div class="wrap ask-grid">
+      <div class="ask-intro ct-intro">
+        <p class="eyebrow">Contatti</p>
+        <h2 class="h2">Scrivici</h2>
+        <p class="lead">Per domande sul Lab e sulle tappe, per organizzare una tappa nel tuo territorio, per collaborazioni o per la stampa.</p>
+        <p class="ct-mail">Oppure scrivi a <b>info@rankwit.ai</b></p>
+      </div>
+      <div id="contact-slot"></div>
     </div>
   </section>
 </main>
@@ -964,6 +1002,7 @@ a{color:inherit}
         <a href="#destinations">Destinazioni</a>
         <a href="#report">Report</a>
         <a href="#faq">Domande</a>
+        <a href="#contatti">Contatti</a>
         <a href="https://lab.rankwit.ai/eventi" target="_blank" rel="noopener">Tutti gli eventi ↗</a>
         <a href="https://www.linkedin.com/company/rankwit-ai/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="https://lab.rankwit.ai/privacy" target="_blank" rel="noopener">Privacy</a>
@@ -1339,6 +1378,69 @@ a{color:inherit}
   }
   wireForm(document.getElementById("ask-form-slot"), "ask", "", "home");
 
+  /* ---------- video della prima edizione (ospitato su lab.rankwit.ai) ----------
+     Se il video non si carica (per esempio nell'anteprima su claude.ai, che blocca i file esterni)
+     compare un link per guardarlo sul sito attuale. */
+  (function(){
+    var v = document.getElementById("vid"), fb = document.getElementById("vid-fallback");
+    function fail(){ v.hidden = true; fb.hidden = false; }
+    v.addEventListener("error", fail);
+    setTimeout(function(){ if (v.readyState === 0 && v.networkState === 3) fail(); }, 4000);
+  })();
+
+  /* ---------- modulo contatti: richieste generali ---------- */
+  var ARGOMENTI = ["Informazioni sul Lab", "Partecipare a una tappa", "Organizzare una tappa nel mio territorio", "Collaborazioni e sponsor", "Stampa", "Altro"];
+  function wireContact(){
+    var slot = document.getElementById("contact-slot"), p = "ct";
+    slot.innerHTML = '<form class="form" id="ct-form" novalidate><h3>Invia un messaggio</h3><div class="form-grid">'
+      + '<div class="fld"><label for="ct-nome">Nome e cognome</label><input id="ct-nome" type="text" autocomplete="name" required><span class="fld-err" id="ct-nome-err" hidden></span></div>'
+      + '<div class="fld"><label for="ct-email">Email</label><input id="ct-email" type="email" autocomplete="email" required><span class="fld-err" id="ct-email-err" hidden></span></div>'
+      + '<div class="fld"><label for="ct-org">Struttura o organizzazione <span class="opt">(facoltativo)</span></label><input id="ct-org" type="text" autocomplete="organization"></div>'
+      + '<div class="fld"><label for="ct-tel">Telefono <span class="opt">(facoltativo)</span></label><input id="ct-tel" type="tel" autocomplete="tel"></div>'
+      + '<div class="fld span2"><label for="ct-arg">Argomento</label><select id="ct-arg" required><option value="">Scegli un argomento</option>' + ARGOMENTI.map(function(a){ return '<option>'+esc(a)+'</option>'; }).join("") + '</select><span class="fld-err" id="ct-arg-err" hidden></span></div>'
+      + '<div class="fld span2"><label for="ct-msg">Messaggio</label><textarea id="ct-msg" required></textarea><span class="fld-err" id="ct-msg-err" hidden></span></div>'
+      + '<label class="check span2" id="ct-privacy-wrap"><input id="ct-privacy" type="checkbox" required><span>Ho letto l\'<a href="https://lab.rankwit.ai/privacy" target="_blank" rel="noopener">informativa sulla privacy</a> e acconsento a essere contattato da RankWit per questa richiesta.</span></label>'
+      + '</div><p class="form-alert" id="ct-alert" role="alert" hidden></p>'
+      + '<div class="form-actions"><button class="btn" type="submit" id="ct-submit">Invia il messaggio <span class="arr" aria-hidden="true">→</span></button><p>Usiamo i tuoi dati solo per rispondere a questo messaggio.</p></div></form>';
+    var f = document.getElementById("ct-form"), $ = function(k){ return document.getElementById(p+"-"+k); };
+    function setErr(k, msg){
+      var el = $(k), er = $(k+"-err");
+      if (el) el.setAttribute("aria-invalid", msg ? "true" : "false");
+      if (er){ er.textContent = msg || ""; er.hidden = !msg; if (el && msg) el.setAttribute("aria-describedby", p+"-"+k+"-err"); }
+    }
+    f.addEventListener("input", function(e){ if (e.target.getAttribute("aria-invalid")==="true") setErr(e.target.id.replace(p+"-",""), ""); });
+    f.addEventListener("change", function(e){ if (e.target.tagName==="SELECT" && e.target.getAttribute("aria-invalid")==="true") setErr(e.target.id.replace(p+"-",""), ""); });
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var v = function(k){ return ($(k) ? $(k).value : "").trim(); };
+      var first = null, mark = function(k, msg){ setErr(k, msg); if (msg && !first) first = $(k); };
+      mark("nome", v("nome") ? "" : "Scrivi nome e cognome.");
+      mark("email", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")) ? "" : "Scrivi un indirizzo email valido.");
+      mark("arg", v("arg") ? "" : "Scegli un argomento.");
+      mark("msg", v("msg").length >= 5 ? "" : "Scrivi il messaggio.");
+      var priv = $("privacy").checked;
+      $("privacy-wrap").classList.toggle("invalid", !priv);
+      if (!priv && !first) first = $("privacy");
+      var alert = $("alert");
+      if (first){ alert.textContent = "Controlla i campi evidenziati."; alert.hidden = false; first.focus(); return; }
+      alert.hidden = true;
+      var rec = { tipo: "contatto", argomento: v("arg"), messaggio: v("msg").slice(0, 4000), nome: v("nome"), email: v("email"),
+                  struttura: v("org"), telefono: v("tel"), consensoPrivacy: true, pagina: "contatti", inviatoIl: new Date().toISOString() };
+      var btn = $("submit"); btn.disabled = true; btn.textContent = "Invio in corso";
+      inviaRichiesta(rec).then(function(){
+        f.innerHTML = '<div class="form-done" role="status"><span class="ok" aria-hidden="true">✓</span><h3>Messaggio inviato</h3><p>Grazie, ' + esc(rec.nome.split(" ")[0]) + '. Ti rispondiamo a ' + esc(rec.email) + '.</p><button type="button" id="ct-again">Scrivi un altro messaggio</button></div>';
+        document.getElementById("ct-again").addEventListener("click", wireContact);
+      }, function(err){
+        btn.disabled = false; btn.innerHTML = 'Invia il messaggio <span class="arr" aria-hidden="true">→</span>';
+        alert.innerHTML = (err && err.code === "no_db")
+          ? 'Da questa pagina non è possibile inviare il messaggio. Scrivici a <code>'+MAIL+'</code>.'
+          : 'Invio non riuscito. Riprova tra qualche minuto oppure scrivici a <code>'+MAIL+'</code>.';
+        alert.hidden = false;
+      });
+    });
+  }
+  wireContact();
+
   /* ---------- richieste ricevute: solo per il proprietario ---------- */
   Promise.all([dbP, userP]).then(function(r){
     var db = r[0], user = r[1];
@@ -1350,12 +1452,13 @@ a{color:inherit}
         var all = [];
         snap.docs.forEach(function(d){ var b = d.data() || {}; (Array.isArray(b.invii) ? b.invii : []).forEach(function(x){ if (x && typeof x === "object") all.push(x); }); });
         all.sort(function(a,b){ return String(b.inviatoIl).localeCompare(String(a.inviatoIl)); });
-        var count = {}; all.forEach(function(x){ var c = String(x.citta||"?"); count[c] = (count[c]||0)+1; });
+        var count = {}; all.forEach(function(x){ var c = x.tipo === "contatto" ? "Contatti" : String(x.citta||"?"); count[c] = (count[c]||0)+1; });
         document.getElementById("inbox-sum").innerHTML = Object.keys(count).sort(function(a,b){return count[b]-count[a];}).map(function(c){ return '<span>'+esc(c)+': '+count[c]+'</span>'; }).join("");
         document.getElementById("inbox-rows").innerHTML = all.length ? all.map(function(x){
           var d = new Date(x.inviatoIl), ds = isNaN(d) ? "" : d.toLocaleString("it-IT",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
-          return '<tr><td class="tab">'+esc(ds)+'</td><td>'+(x.tipo==="proposta"?"Proposta":"Avvisami")+'</td><td>'+esc(x.citta)+'</td><td>'+esc(x.struttura)+'<br><span style="color:#636160">'+esc(x.tipoStruttura)+'</span></td><td>'+esc(x.nome)+'</td><td>'+esc(x.email)+'</td><td>'+esc(x.telefono)+'</td></tr>';
-        }).join("") : '<tr><td class="empty" colspan="7">Nessuna richiesta per ora.</td></tr>';
+          var tipo = x.tipo === "proposta" ? "Proposta" : (x.tipo === "contatto" ? "Contatto" : "Avvisami");
+          return '<tr><td class="tab">'+esc(ds)+'</td><td>'+tipo+'</td><td>'+esc(x.citta || x.argomento)+'</td><td>'+esc(x.struttura)+(x.tipoStruttura ? '<br><span style="color:#636160">'+esc(x.tipoStruttura)+'</span>' : '')+'</td><td>'+esc(x.nome)+'</td><td>'+esc(x.email)+'</td><td>'+esc(x.telefono)+'</td><td class="msg">'+esc(x.messaggio)+'</td></tr>';
+        }).join("") : '<tr><td class="empty" colspan="8">Nessuna richiesta per ora.</td></tr>';
       }, function(){ });
     });
   }).catch(function(){});
