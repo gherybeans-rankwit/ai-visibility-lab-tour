@@ -17,7 +17,7 @@
   --btn:#5B21D6; --btn-hover:#40119E; --btn-ink:#FFFFFF;
   --pink-deep:#AA0B56; --pink-soft:#FFF1F4; --pink:#FF458E;
   --night:#1B0B3A; --night-2:#26124C; --night-3:#2F1A5E; --on-night:#FFFFFF; --on-night-soft:#E3DCFB; --lilac:#C4B5FD;
-  --night-line:rgba(196,181,253,.20); --grid:rgba(196,181,253,.06);
+  --night-line:rgba(196,181,253,.20);
   --mint:#B5F5E2; --mint-ink:#0B3B2E;
   --band-violet:#5B21D6;
   --flap-top:#2C1756; --flap-bot:#24124A; --flap-seam:rgba(8,3,20,.75);
@@ -65,8 +65,11 @@ a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
 .band{padding-block:clamp(72px,10vw,136px)}
 .band-surface{background:var(--surface)}
-.band-night{background:var(--night);color:var(--on-night);position:relative}
-.band-night::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+/* fasce notte: due aloni di luce che scorrono in direzioni opposte mentre la sezione attraversa lo schermo (--p da 0 a 1, aggiornata dallo script) */
+.band-night{--p:.5;background:linear-gradient(180deg,var(--night) 0%,#200E45 55%,var(--night) 100%);color:var(--on-night);position:relative;overflow:hidden;isolation:isolate}
+.band-night::before,.band-night::after{content:"";position:absolute;z-index:-1;pointer-events:none;aspect-ratio:1;border-radius:50%;will-change:transform}
+.band-night::before{width:min(1200px,120vw);left:-28%;top:-45%;background:radial-gradient(closest-side,rgba(110,58,235,.55),rgba(110,58,235,.18) 55%,rgba(110,58,235,0));transform:translate3d(calc(var(--p) * 22%),calc(var(--p) * 38%),0)}
+.band-night::after{width:min(950px,100vw);right:-24%;bottom:-50%;background:radial-gradient(closest-side,rgba(214,40,130,.30),rgba(214,40,130,.08) 55%,rgba(214,40,130,0));transform:translate3d(calc(var(--p) * -20%),calc(var(--p) * -34%),0)}
 .band-night > .wrap{position:relative}
 .band-violet{background:var(--band-violet);color:#FFFFFF}
 .rule-top{border-top:1px solid var(--line)}
@@ -1257,6 +1260,26 @@ a{color:inherit}
     var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ spin(); io.disconnect(); } }); }, {threshold:.25});
     io.observe(board);
   }
+  /* ---------- aloni delle fasce notte che seguono lo scroll ---------- */
+  var glows = Array.prototype.slice.call(document.querySelectorAll(".band-night"));
+  if (!reduce && glows.length){
+    var glowQueued = false;
+    var paintGlows = function(){
+      glowQueued = false;
+      var vh = window.innerHeight || 800;
+      glows.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) return;
+        var p = (vh - r.top) / (vh + r.height);
+        el.style.setProperty("--p", Math.max(0, Math.min(1, p)).toFixed(3));
+      });
+    };
+    var queueGlows = function(){ if (!glowQueued){ glowQueued = true; requestAnimationFrame(paintGlows); } };
+    window.addEventListener("scroll", queueGlows, {passive:true});
+    window.addEventListener("resize", queueGlows);
+    paintGlows();
+  }
+
   var clock = document.getElementById("clock");
   function tickClock(){ try{ clock.textContent = new Intl.DateTimeFormat("it-IT",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Rome"}).format(new Date()); }catch(e){} }
   tickClock(); setInterval(tickClock, 20000);
