@@ -612,6 +612,42 @@ a{color:inherit}
 @media (max-width:640px){.rows div{grid-template-columns:1fr}}
 .bubbles{display:flex;flex-wrap:wrap;gap:12px}
 .bubbles .q{margin:0;border-color:var(--line);background:var(--paper);color:var(--ink);font-size:1.05rem;padding:12px 16px}
+/* destinazioni: risposta AI sbagliata in apertura, danno, ruolo della DMO */
+.dst-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:960px){.dst-hero{grid-template-columns:1fr}}
+.dst-hero .page-h1{max-width:13ch}
+.aw{margin:0;max-width:520px;width:100%;justify-self:end}
+@media (max-width:960px){.aw{justify-self:start}}
+.aw .q{margin:0 0 6px}
+.aw ol{list-style:none;margin:0;padding:0;display:grid}
+.aw li{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--sheet-line)}
+.aw li:first-child{border-top:0}
+.aw li p{font-size:.95rem;line-height:1.45;color:var(--sheet-ink)}
+.aw mark{background:none;color:inherit;text-decoration:underline wavy #D6286F;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.aw-fix{display:flex;flex-wrap:wrap;gap:6px}
+.aw-fix span{font-size:.74rem;font-weight:600;line-height:1.2;border-radius:999px;padding:5px 10px}
+.aw-src{background:#FFF1F4;color:#AA0B56}
+.aw-ok{background:#DDFBF1;color:#0B3B2E}
+.aw .chat-cap{border-top:1px solid var(--sheet-line);padding-top:12px}
+.harm-head .eyebrow,.harm-head .h2 em{color:var(--pink-deep)}
+.harm .kind{border-top-color:var(--pink-deep)}
+.harm .kind p{color:var(--muted)}
+.harm .kind .n{font-family:var(--font-display);font-weight:600;font-size:.85rem;color:var(--pink-deep)}
+.case{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:baseline;padding:clamp(18px,2.5vw,26px) clamp(20px,3vw,32px);border-radius:var(--radius-m);background:var(--pink-soft)}
+@media (max-width:640px){.case{grid-template-columns:1fr}}
+.case .eyebrow{color:var(--pink-deep)}
+.case p:not(.eyebrow){max-width:78ch}
+.case a{color:var(--pink-deep);font-weight:600}
+.dmo{border-radius:var(--radius-l);background:var(--violet-soft);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.dmo{grid-template-columns:1fr}}
+.dmo .sec-head{margin:0}
+.dmo ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:dmo}
+.dmo li{counter-increment:dmo;display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:4px 16px;padding:18px 0;border-top:1px solid var(--violet-line)}
+.dmo li:first-child{border-top:0;padding-top:0}
+.dmo li::before{content:counter(dmo,decimal-leading-zero);grid-row:span 2;font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--violet);padding-top:3px}
+.dmo li b{font-family:var(--font-display);font-weight:600;font-size:1.15rem}
+.dmo li span{color:var(--muted)}
+@media (max-width:560px){.dmo li{grid-template-columns:2rem minmax(0,1fr);gap:4px 10px}}
 .who-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:760px){.who-cards{grid-template-columns:1fr}}
 .who-card{display:grid;gap:14px;align-content:start;padding:clamp(24px,3vw,36px);border-radius:var(--radius-l);background:var(--paper);color:var(--ink);border:1px solid var(--line);text-decoration:none;transition:border-color .15s}
@@ -678,7 +714,7 @@ a{color:inherit}
         </div>
       </div>
       <div class="facts">
-        <div><b class="tab">59%</b><span>dei viaggiatori usa l'AI per pianificare i viaggi</span><small>Phocuswright, 2026, viaggiatori statunitensi</small></div>
+        <div><b class="tab">81%</b><span>dei viaggiatori usa già l'AI per scoprire destinazioni e organizzare i viaggi</span><small>Alipay+ e S&amp;P Global, settembre 2026 · 6.000 persone in 9 Paesi tra Europa, Asia e Stati Uniti</small></div>
         <div><b class="tab">5</b><span>assistenti AI analizzati: ChatGPT, Gemini, Claude, Perplexity e Google AI Overviews</span></div>
         <div><b class="tab">300+</b><span>aziende del turismo usano RankWit</span></div>
         <div><b class="tab">500 €</b><span>valore del primo audit, incluso nel biglietto di ogni partecipante</span></div>
@@ -838,7 +874,7 @@ a{color:inherit}
       <div class="sec-head"><p class="eyebrow">Per chi</p><h2 class="h2">Per hotel <em>e destinazioni</em></h2></div>
       <div class="who-cards">
         <a class="who-card" href="#hotel"><span class="eyebrow">Hotel</span><b>Come gli assistenti AI descrivono il tuo hotel e quali strutture citano al posto tuo.</b><span class="go">Il Lab per gli hotel →</span></a>
-        <a class="who-card" href="#destinations"><span class="eyebrow">Destinazioni</span><b>Come gli assistenti AI raccontano il territorio e quali mete consigliano al suo posto.</b><span class="go">Il Lab per le destinazioni →</span></a>
+        <a class="who-card" href="#destinations"><span class="eyebrow">Destinazioni</span><b>Cosa dicono gli assistenti AI del territorio, quanti errori ripetono e da quali fonti li prendono.</b><span class="go">Il Lab per le destinazioni →</span></a>
       </div>
     </div>
   </section>
@@ -928,10 +964,22 @@ a{color:inherit}
       <h1 class="page-h1">Il Lab <em>per gli hotel</em></h1>
       <p class="lead">Il report mostra come gli assistenti AI descrivono il tuo hotel quando un ospite chiede consiglio, quali strutture citano al posto tuo e cosa cambiare sul sito per essere citato più spesso.</p>
     </div>
-    <div data-panel="destinations" hidden>
-      <p class="eyebrow">Per le destinazioni</p>
-      <h1 class="page-h1">Il Lab <em>per le destinazioni</em></h1>
-      <p class="lead">Per DMO, consorzi, comuni e uffici turistici. Il report mostra come gli assistenti AI raccontano il territorio, quali mete consigliano al suo posto e quali fonti usano per farlo.</p>
+    <div class="dst-hero" data-panel="destinations" hidden>
+      <div>
+        <p class="eyebrow">Il Lab per le destinazioni</p>
+        <h1 class="page-h1">L'AI parla del tuo territorio. <em>Spesso sbagliando.</em></h1>
+        <p class="lead">Per DMO, consorzi, comuni e uffici turistici. Gli assistenti AI rispondono ai viaggiatori con informazioni prese da blog, aggregatori e articoli vecchi di anni. Il report mostra cosa dicono del territorio, da dove lo prendono e come far pesare di più la fonte ufficiale.</p>
+      </div>
+      <figure class="chat aw">
+        <div class="chat-top"><b>Assistente AI</b><span>Risposta di esempio · dati inventati</span></div>
+        <p class="q">«cosa fare in valle questo fine settimana»</p>
+        <ol>
+          <li><p>Visita il Museo della Pietra, <mark>aperto tutti i giorni dalle 10 alle 18</mark>.</p><div class="aw-fix"><span class="aw-src">Preso da un blog del 2021</span><span class="aw-ok">Dato ufficiale: chiuso il lunedì</span></div></li>
+          <li><p>Non perdere la Sagra della castagna, <mark>il secondo fine settimana di settembre</mark>.</p><div class="aw-fix"><span class="aw-src">Preso da un aggregatore di eventi</span><span class="aw-ok">Dato ufficiale: dal 2025 è a ottobre</span></div></li>
+          <li><p>Il sentiero delle cascate <mark>parte dal parcheggio comunale</mark>.</p><div class="aw-fix"><span class="aw-src">Preso da un forum del 2019</span><span class="aw-ok">Dato ufficiale: chiuso per frana</span></div></li>
+        </ol>
+        <figcaption class="chat-cap"><b>Il portale ufficiale non è tra le fonti.</b> Chi parte con questa risposta trova il museo chiuso, nessuna sagra e un sentiero inagibile.</figcaption>
+      </figure>
     </div>
   </div></section>
   <section class="band" data-panel="hotel">
@@ -963,19 +1011,41 @@ a{color:inherit}
   <section class="band" data-panel="destinations" hidden>
     <div class="wrap pc-body">
       <div class="pc-block">
+        <div class="sec-head harm-head"><p class="eyebrow">Perché è un problema</p><h2 class="h2">Quando l'AI sbaglia, <em>ci rimette il territorio</em></h2><p class="lead">Gli assistenti non distinguono tra il portale della DMO e il blog di un viaggiatore di cinque anni fa. Se la fonte ufficiale non è chiara, aggiornata e facile da leggere, scelgono le altre. Il viaggiatore non sa da dove arriva l'informazione: sa solo che sul posto non l'ha trovata.</p></div>
+        <div class="kinds harm">
+          <div class="kind"><span class="n">01</span><h3>Visitatori delusi</h3><p>Arrivano e trovano chiuso, o cercano qualcosa che non c'è. La delusione finisce nelle recensioni del territorio, non in quelle dell'assistente.</p></div>
+          <div class="kind"><span class="n">02</span><h3>Un racconto che non è il tuo</h3><p>Il territorio viene descritto con le parole di blog e aggregatori: sempre gli stessi tre luoghi, nessuna novità, le zone meno note che spariscono.</p></div>
+          <div class="kind"><span class="n">03</span><h3>Operatori penalizzati</h3><p>Hotel, ristoranti e guide ricevono richieste nate da informazioni sbagliate e devono correggerle una per una, ospite per ospite.</p></div>
+        </div>
+        <aside class="case">
+          <p class="eyebrow">Un caso reale</p>
+          <p>Tasmania, 2025. Il sito di un piccolo tour operator pubblica un articolo scritto con l'AI che consiglia le terme di Weldborough. Le terme non sono mai esistite, ma da allora in paese arrivano turisti a cercarle: un gruppo di 24 automobilisti ha fatto la deviazione apposta. <a href="https://www.euronews.com/travel/2026/01/30/how-an-ai-generated-travel-website-sent-tourists-to-a-non-existent-hot-spring-attraction" target="_blank" rel="noopener">Euronews, gennaio 2026 ↗</a></p>
+        </aside>
+      </div>
+      <div class="pc-block dmo">
+        <div class="sec-head"><p class="eyebrow">Cosa si può fare</p><h2 class="h2">Serve la voce ufficiale <em>della DMO</em></h2><p class="lead">Date, orari, eventi, luoghi aperti e chiusi: la DMO è la fonte che li conosce meglio. Il lavoro è fare in modo che gli assistenti la trovino, la capiscano e la preferiscano alle altre. Si può fare, e i risultati si misurano.</p></div>
+        <ol>
+          <li><b>Trovare gli errori</b><span>Mettiamo a confronto le risposte degli assistenti con i dati ufficiali e, per ogni errore, indichiamo da quale fonte arriva.</span></li>
+          <li><b>Rendere leggibile la fonte ufficiale</b><span>Pagine del portale che rispondono alle domande dei viaggiatori. Eventi, luoghi e orari scritti con dati strutturati, in un formato che gli assistenti leggono senza errori.</span></li>
+          <li><b>Allineare il territorio</b><span>Le stesse informazioni sul portale, sui siti dei Comuni, nelle schede di Google, su Wikipedia e sui siti degli operatori. Se ovunque c'è la stessa versione, gli assistenti la ripetono.</span></li>
+          <li><b>Controllare nel tempo</b><span>Rifacciamo le stesse domande per vedere se gli errori spariscono e quante volte gli assistenti citano il portale ufficiale.</span></li>
+        </ol>
+      </div>
+      <div class="pc-block">
         <div class="sec-head"><p class="eyebrow">Il report</p><h2 class="h2">Cosa analizziamo per una destinazione</h2></div>
         <dl class="rows">
+          <div><dt>Errori nelle risposte</dt><dd>Le informazioni sbagliate che gli assistenti danno sul territorio, come orari, date, prezzi, luoghi chiusi o inesistenti, confrontate con i dati ufficiali.</dd></div>
+          <div><dt>Fonti</dt><dd>Da dove prendono le informazioni gli assistenti: quante volte citano il portale ufficiale e quante blog, aggregatori, guide e siti non aggiornati.</dd></div>
           <div><dt>Quota di voce</dt><dd>Quante volte gli assistenti AI citano la destinazione nelle risposte su vacanze, weekend e itinerari, rispetto alle destinazioni concorrenti.</dd></div>
           <div><dt>Destinazioni concorrenti</dt><dd>I territori che gli assistenti consigliano davvero al posto del tuo, domanda per domanda.</dd></div>
           <div><dt>Punti forti e deboli</dt><dd>I temi in cui la destinazione è citata più o meno delle altre: natura, borghi, enogastronomia, eventi, sport, benessere.</dd></div>
-          <div><dt>Fonti</dt><dd>Portali, guide, siti degli operatori e articoli che gli assistenti usano per parlare del territorio.</dd></div>
           <div><dt>Portale della destinazione</dt><dd>Se il sito ufficiale risponde alle domande dei viaggiatori e se le informazioni su eventi e luoghi sono leggibili dagli assistenti.</dd></div>
         </dl>
       </div>
       <div class="pc-block">
         <div class="sec-head"><p class="eyebrow">Tipi di destinazione</p><h2 class="h2">Per quale destinazione</h2></div>
         <div class="kinds">
-          <div class="kind"><h3>DMO e consorzi turistici</h3><ul><li>La quota di voce del territorio nelle domande di chi sceglie dove andare.</li><li>Un elenco di priorità da condividere con gli operatori del territorio.</li></ul></div>
+          <div class="kind"><h3>DMO e consorzi turistici</h3><ul><li>Gli errori che gli assistenti ripetono sul territorio e le fonti da cui arrivano.</li><li>La quota di voce del territorio nelle domande di chi sceglie dove andare.</li><li>Un elenco di priorità da condividere con gli operatori del territorio.</li></ul></div>
           <div class="kind"><h3>Comuni e uffici turistici</h3><ul><li>Le pagine del portale da riscrivere per rispondere alle domande dei visitatori.</li><li>Eventi e luoghi descritti in un formato leggibile dagli assistenti.</li></ul></div>
           <div class="kind"><h3>Aree interne e territori</h3><ul><li>Come gli assistenti descrivono il territorio rispetto alle mete più conosciute.</li><li>Le domande da monitorare per stagione e per mercato.</li></ul></div>
         </div>
