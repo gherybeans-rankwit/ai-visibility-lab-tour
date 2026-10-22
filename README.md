@@ -16,6 +16,10 @@ Le tappe sono nell'array `TAPPE` in cima allo script di `index.html`.
 - `breve`, `tabellone`: nomi corti per mappa e calendario quando il nome è lungo.
 - Una tappa senza `intro` mostra la pagina "Informazioni disponibili a breve" con il modulo Avvisami. Con `intro`, `sede`, `formato`, `costo`, `agenda` diventa una pagina completa (vedi Firenze e Rimini).
 
+## Loghi
+
+I loghi di partner e clienti sono incorporati in `index.html` come immagini WebP (data URI), quindi la pagina non dipende da file esterni. Per aggiungere un cliente basta un nuovo `<li>` nella lista `#client-row`; la striscia che scorre si duplica da sola.
+
 ## Da collegare
 
 - **Moduli (Avvisami e Contatti)**: entrambi usano la funzione `inviaRichiesta(rec)`, che oggi salva nel database dell'anteprima su claude.ai. Sul sito va sostituita con una chiamata al vostro backend o CRM. Il resto dei moduli (campi, controlli, conferma) non cambia.
