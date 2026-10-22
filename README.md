@@ -5,7 +5,7 @@ Sito vetrina del roadshow AI Visibility Lab di RankWit. È un'unica pagina stati
 ## Cosa contiene
 
 - **Home**: mappa delle tappe, calendario, come si partecipa, report, argomenti delle sessioni, modulo "Avvisami o proponi una città", partner, domande frequenti.
-- **Pagine separate**: `#formati`, `#hotel`, `#destinations` e una pagina per ogni tappa (`#casentino`, `#firenze`, ...).
+- **Pagine separate**: `#hotel`, `#destinations` e una pagina per ogni tappa (`#casentino`, `#firenze`, ...).
 
 ## Aggiornare le tappe
 
