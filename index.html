@@ -336,11 +336,9 @@ a{color:inherit}
 .prog-note{margin-top:16px;font-size:.85rem;color:var(--muted)}
 .topics .prog-row h3{font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.2}
 .topics .desc{font-size:.95rem;color:var(--muted)}
-.pano-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);background:var(--violet-soft);border-radius:999px;padding:5px 10px;margin-bottom:10px}
-.scope{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
-.scope li{position:relative;padding-left:18px;line-height:1.5}
-.scope li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--violet)}
-.scope b{display:block;font-family:var(--font-display);font-weight:600;color:var(--ink);font-size:1rem}
+.prog-head{display:grid;gap:12px;align-content:start}
+.prog-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.prog-chips li{font-size:.72rem;font-weight:600;letter-spacing:.04em;color:var(--violet-deep);background:var(--violet-soft);border-radius:999px;padding:4px 10px}
 @media (max-width:860px){.topics .desc{grid-column:2}}
 
 /* per chi */
@@ -774,7 +772,7 @@ a{color:inherit}
       <div class="enter solo">
         <div><span class="big tab">2<small>minuti</small></span><h3>Candidatura</h3><p>Indichi struttura, sito, zona e tre concorrenti. Ti rispondiamo entro due giorni lavorativi.</p></div>
         <div><span class="big tab">10<small>minuti</small></span><h3>Questionario</h3><p>Lo compili online quando ti è comodo. Non chiediamo accessi al sito né ai tuoi strumenti.</p></div>
-        <div><span class="big tab">1<small>report</small></span><h3>Il giorno della tappa</h3><p>Trovi il report stampato al tuo posto e lo usi durante le sessioni per decidere le priorità.</p></div>
+        <div><span class="big tab">1<small>report</small></span><h3>Il giorno della tappa</h3><p>Trovi il report stampato al tuo posto e lo usi durante le sessioni come esempio concreto sulla tua struttura.</p></div>
       </div>
     </div>
   </section>
@@ -854,40 +852,32 @@ a{color:inherit}
     <div class="wrap">
       <div class="sec-head split">
         <div style="display:grid;gap:16px"><p class="eyebrow">Programma</p><h2 class="h2">Gli argomenti <em>delle sessioni</em></h2></div>
-        <p class="lead">Ogni tappa si apre con uno sguardo d'insieme su cosa sta cambiando nel turismo e nella ricerca online. Poi si lavora sul report, in tre passaggi. Durata e orari dipendono dal formato e sono indicati nella pagina di ogni tappa.</p>
+        <p class="lead">Una giornata di formazione in quattro parti, dal quadro generale agli strumenti pratici. Ogni partecipante ha il proprio report e lo usa come esempio concreto durante le sessioni. Durata e orari dipendono dal formato e sono indicati nella pagina di ogni tappa.</p>
       </div>
       <div class="programme topics">
-        <div class="prog-row pano">
+        <div class="prog-row">
           <span class="prog-t tab">01</span>
-          <div><p class="pano-tag">Il quadro generale</p><h3>Dove sta andando il turismo</h3></div>
-          <div class="desc">
-            <p>Prima di aprire i report, una panoramica per capire cosa sta succedendo e chi si sta muovendo.</p>
-            <ul class="scope">
-              <li><b>Viaggiatori</b>come scelgono e prenotano oggi, e quanto pesa già l'AI nelle loro decisioni.</li>
-              <li><b>Ricerca</b>dai risultati di Google alle risposte degli assistenti: AI Overviews, AI Mode, ChatGPT, Perplexity.</li>
-              <li><b>Industria</b>cosa stanno facendo OTA, catene e piattaforme, dalla prenotazione dentro gli assistenti agli agenti AI.</li>
-              <li><b>Come evolvere</b>competenze, ruoli e priorità per hotel e destinazioni nei prossimi anni.</li>
-            </ul>
-          </div>
-          <p class="out"><small>Al termine hai</small>Un quadro chiaro di cosa sta cambiando e di dove conviene concentrarsi.</p>
+          <div class="prog-head"><h3>Dove sta andando il turismo</h3><ul class="prog-chips"><li>Viaggiatori</li><li>Ricerca AI</li><li>Industria</li></ul></div>
+          <p class="desc">Come stanno cambiando le scelte dei viaggiatori, come si muovono motori di ricerca, assistenti AI, OTA e catene, e cosa vuol dire per chi lavora nel turismo.</p>
+          <p class="out"><small>Porti a casa</small>Un quadro chiaro di cosa sta cambiando e di cosa aspettarsi nei prossimi anni.</p>
         </div>
         <div class="prog-row">
           <span class="prog-t tab">02</span>
-          <h3>Cosa funziona ancora, e cosa no</h3>
-          <p class="desc">Con il report in mano: quali attività di oggi restano utili e quali non servono più. Si parte dalla pagina più importante per la tua struttura.</p>
-          <p class="out"><small>Al termine hai</small>La pagina del sito da riscrivere per prima, e come farlo.</p>
+          <div class="prog-head"><h3>Come ragionano gli assistenti AI</h3><ul class="prog-chips"><li>Fonti</li><li>Citazioni</li><li>SEO e AI</li></ul></div>
+          <p class="desc">Da quali fonti prendono le informazioni, perché citano alcune strutture e non altre, e quali attività di marketing restano utili e quali contano meno.</p>
+          <p class="out"><small>Porti a casa</small>I criteri per capire cosa conta oggi e dove investire tempo e budget.</p>
         </div>
         <div class="prog-row">
           <span class="prog-t tab">03</span>
-          <h3>Mettere in ordine quello che il sito deve dire</h3>
-          <p class="desc">La parte tecnica, senza scrivere codice: dati strutturati, llms.txt e quali bot AI possono leggere il sito.</p>
-          <p class="out"><small>Al termine hai</small>I template compilati per il tuo sito e le istruzioni per chi lo gestisce.</p>
+          <div class="prog-head"><h3>Il sito, letto da un'AI</h3><ul class="prog-chips"><li>Contenuti</li><li>Dati strutturati</li><li>llms.txt</li></ul></div>
+          <p class="desc">La parte tecnica spiegata senza codice: contenuti che rispondono alle domande degli ospiti, dati strutturati, llms.txt e accesso dei bot AI.</p>
+          <p class="out"><small>Porti a casa</small>Una lista di controllo da applicare al tuo sito o da girare a chi lo gestisce.</p>
         </div>
         <div class="prog-row">
           <span class="prog-t tab">04</span>
-          <h3>Le domande su cui vuoi essere misurato</h3>
-          <p class="desc">Le domande che gli ospiti fanno agli assistenti AI prima di prenotare: quali scegliere, cosa controllare ogni mese e chi se ne occupa.</p>
-          <p class="out"><small>Al termine hai</small>L'elenco delle domande da monitorare e la prima misurazione.</p>
+          <div class="prog-head"><h3>Misurare nel tempo</h3><ul class="prog-chips"><li>Domande</li><li>Quota di voce</li><li>Report</li></ul></div>
+          <p class="desc">Come si misura la visibilità AI: quali domande tenere d'occhio, come leggere la quota di voce e ogni quanto controllare. Si chiude guardando i report.</p>
+          <p class="out"><small>Porti a casa</small>Un metodo per seguire la tua visibilità nel tempo, con il report come punto di partenza.</p>
         </div>
       </div>
     </div>
@@ -1687,7 +1677,7 @@ a{color:inherit}
         + '<div><span class="when">Prima</span><b>Candidatura e questionario</b><p>Online, senza accessi al sito.</p></div>'
         + '<div><span class="when">In sala</span><b>Il report sulla tua struttura</b><p>Con il confronto con tre concorrenti scelti da te.</p><span class="tag">500 € di listino</span></div>'
         + '<div><span class="when">Negli allegati</span><b>Template già compilati</b><p>Da inserire nel sito o da inviare a chi lo gestisce.</p></div>'
-        + '<div><span class="when">Alla fine</span><b>Le priorità</b><p>Cosa fare, in che ordine e chi se ne occupa.</p></div></div></section>';
+        + '<div><span class="when">Durante la giornata</span><b>Quattro sessioni di formazione</b><p>Dal quadro generale del turismo agli strumenti per misurare la visibilità AI.</p></div></div></section>';
     } else {
       main += '<section><p class="eyebrow">La tappa</p><h2>'+esc(t.edizione)+'</h2><div class="prose">'+t.intro.map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+'</div></section>';
       main += '<section><p class="eyebrow">Programma</p><h2>'+esc(t.programma)+'</h2><ol class="agenda">'
