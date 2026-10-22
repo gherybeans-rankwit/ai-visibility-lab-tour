@@ -20,6 +20,10 @@ Le tappe sono nell'array `TAPPE` in cima allo script di `index.html`.
 
 I loghi di partner e clienti sono incorporati in `index.html` come immagini WebP (data URI), quindi la pagina non dipende da file esterni. Per aggiungere un cliente basta un nuovo `<li>` nella lista `#client-row`; la striscia che scorre si duplica da sola.
 
+## Mobile
+
+Sotto i 900 px il menu in alto diventa un pulsante (`#menu-btn`) che apre l'elenco delle sezioni (`#mnav`). Le voci sono le stesse del menu desktop, più "Programma".
+
 ## Da collegare
 
 - **Moduli (Avvisami e Contatti)**: entrambi usano la funzione `inviaRichiesta(rec)`, che oggi salva nel database dell'anteprima su claude.ai. Sul sito va sostituita con una chiamata al vostro backend o CRM. Il resto dei moduli (campi, controlli, conferma) non cambia.
